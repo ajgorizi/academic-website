@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>Media | Amirsalar</title>
+  <link rel="stylesheet" href="./assets/styles.css">
+  <style>
+    .flash-reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease-out, transform 0.5s ease-out, background-color 0.4s ease-out; }
+    .flash-reveal.is-in { opacity: 1; transform: translateY(0); }
+    .flash-reveal.is-flash { background-color: var(--color-accent); transition: background-color 0.05s; }
+  </style>
+  <script>
+    (function() {
+      function reveal(el) {
+        el.classList.add('is-flash');
+        requestAnimationFrame(function() {
+          el.classList.add('is-in');
+          setTimeout(function() { el.classList.remove('is-flash'); }, 120);
+        });
+      }
+      function observeAll() {
+        var els = document.querySelectorAll('.flash-reveal:not([data-flash-observed])');
+        if (!els.length) return;
+        var io = new IntersectionObserver(function(entries) {
+          entries.forEach(function(e) { if (e.isIntersecting) { reveal(e.target); io.unobserve(e.target); } });
+        }, { threshold: 0.15 });
+        els.forEach(function(el) { el.setAttribute('data-flash-observed', '1'); io.observe(el); });
+      }
+      observeAll();
+      new MutationObserver(observeAll).observe(document.documentElement, { childList: true, subtree: true });
+      window.addEventListener('load', observeAll);
+    })();
+  </script>
+</helmet>
+<div style="background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);min-height:100vh">
+  <nav class="nav" style="max-width:1040px;margin:0 auto;flex-wrap:wrap">
+    <span class="nav-brand" style="white-space:nowrap;flex-shrink:0">AMIRSALAR</span>
+    <a href="./index.dc.html">About</a>
+    <a href="./research.dc.html">Research</a>
+    <a href="./teaching.dc.html">Teaching</a>
+    <a href="./cv.dc.html">CV</a>
+    <a href="./media.dc.html" aria-current="page">Media</a>
+    <a href="./contact.dc.html">Contact</a>
+  </nav>
+
+  <section style="max-width:1040px;margin:0 auto;padding:var(--space-8) var(--space-4)" class="flash-reveal is-in">
+    <h6 style="color:var(--color-accent)">Media</h6>
+    <h1>Interviews and press</h1>
+  </section>
+
+  <hr class="hr" style="max-width:1040px;margin:0 auto">
+
+  <section style="max-width:1040px;margin:0 auto;padding:var(--space-8) var(--space-4)" class="flash-reveal">
+    <span class="tag tag-accent">ASQ Blog, November 2025</span>
+    <h2 style="margin:var(--space-3) 0">"If I Could Turn Back Time": Occupational Dynamics, Technology Trajectories, and the Reemergence of the Analog Music Synthesizer</h2>
+    <p style="max-width:700px;margin-bottom:var(--space-3)">Co-interviewed authors Andrew Nelson, Callen Anthony, and Mary Tripsas about their Administrative Science Quarterly paper on technology reemergence in the analog synthesizer industry.</p>
+    <a href="https://asqblog.com/2025/11/19/if-i-could-turn-back-time-occupational-dynamics-technology-trajectories-and-the-reemergence-of-the-analog-music-synthesizer/" target="_blank" rel="noopener" class="btn btn-secondary" style="display:inline-block">Read the interview ↗</a>
+  </section>
+
+  <hr class="hr" style="max-width:1040px;margin:0 auto">
+
+  <section style="max-width:1040px;margin:0 auto;padding:var(--space-8) var(--space-4)" class="flash-reveal">
+    <span class="tag tag-accent">Jindal School News, July 2025</span>
+    <h2 style="margin:var(--space-3) 0">PhD Student, Professor at Jindal School Win Best Paper for Conflict Research</h2>
+    <p style="max-width:700px;margin-bottom:var(--space-3)">Coverage of the Eastern Academy of Management Best Paper Award won with Dr. Mike Peng for "Property Rights, Power, and Socio-Environmental Conflicts," on how property rights allocation and power distribution shape conflicts between firms and local communities.</p>
+    <p style="max-width:700px;margin-bottom:var(--space-3)" class="text-muted">"I eat data for breakfast. I love exploring less-explored contexts, new tools and novel methods of analyses."</p>
+    <a href="https://jindal.utdallas.edu/news/phd-student-professor-at-jindal-school-win-best-paper-for-conflict-research/" target="_blank" rel="noopener" class="btn btn-secondary" style="display:inline-block">Read the article ↗</a>
+  </section>
+
+  <hr class="hr" style="max-width:1040px;margin:0 auto">
+
+  <section style="max-width:1040px;margin:0 auto;padding:var(--space-8) var(--space-4)" class="flash-reveal">
+    <span class="tag tag-accent">Kogod School of Business News, December 2022</span>
+    <h2 style="margin:var(--space-3) 0">Current MS in Sustainability Management Students Are Ready to Play the Field</h2>
+    <p style="max-width:700px;margin-bottom:var(--space-3)">Profile of three MS in Sustainability Management students at American University's Kogod School of Business, including reflections on the program during my master's studies.</p>
+    <p style="max-width:700px;margin-bottom:var(--space-3)" class="text-muted">"The MSSM program at Kogod created a way for me to build many bridges and reach what previously seemed unreachable."</p>
+    <a href="https://kogod.american.edu/news/current-ms-in-sustainability-management-students-are-ready-to-play-the-field" target="_blank" rel="noopener" class="btn btn-secondary" style="display:inline-block">Read the article ↗</a>
+  </section>
+
+  <hr class="hr" style="max-width:1040px;margin:0 auto">
+
+  <section style="max-width:1040px;margin:0 auto;padding:var(--space-8) var(--space-4)" class="flash-reveal">
+    <span class="tag tag-accent">LinkedIn, December 2022</span>
+    <h2 style="margin:var(--space-3) 0">Shared by David Marchick</h2>
+    <p style="max-width:700px;margin-bottom:var(--space-3)">Former Kogod Dean and current Interim President at American University, David Marchick, shared the Kogod School of Business feature on current MS in Sustainability Management students, including my profile.</p>
+    <a href="https://www.linkedin.com/posts/david-marchick_current-ms-in-sustainability-management-students-activity-7006692996729491456-eg8I/" target="_blank" rel="noopener" class="btn btn-secondary" style="display:inline-block">View on LinkedIn ↗</a>
+  </section>
+
+  <hr class="hr" style="max-width:1040px;margin:0 auto">
+
+  <section style="max-width:1040px;margin:0 auto;padding:var(--space-8) var(--space-4)" class="flash-reveal">
+    <span class="tag tag-accent">AZoM, March 2022</span>
+    <h2 style="margin:var(--space-3) 0">Case Study Analysis of Sustainable Transportation</h2>
+    <p style="max-width:700px;margin-bottom:var(--space-3)">Science-press coverage of "Sustainable Transportation in Practice: A Systematic Quantitative Review of Case Studies," published in <em>Sustainability</em>.</p>
+    <a href="https://www.azom.com/news.aspx?newsID=58378" target="_blank" rel="noopener" class="btn btn-secondary" style="display:inline-block">Read the article ↗</a>
+  </section>
+
+  <hr class="hr" style="max-width:1040px;margin:0 auto">
+
+  <footer style="max-width:1040px;margin:0 auto;padding:var(--space-6) var(--space-4);display:flex;justify-content:space-between;font-size:13px" class="text-muted">
+    <span>© 2026 A. Gorizi</span>
+  </footer>
+</div>
+</x-dc>
+</body>
+</html>

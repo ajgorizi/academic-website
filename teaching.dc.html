@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>Teaching | Amirsalar</title>
+  <link rel="stylesheet" href="./assets/styles.css">
+  <script src="./image-slot.js"></script>
+  <style>
+    .flash-reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease-out, transform 0.5s ease-out, background-color 0.4s ease-out; }
+    .flash-reveal.is-in { opacity: 1; transform: translateY(0); }
+    .flash-reveal.is-flash { background-color: var(--color-accent); transition: background-color 0.05s; }
+  </style>
+  <script>
+    (function() {
+      function reveal(el) {
+        el.classList.add('is-flash');
+        requestAnimationFrame(function() {
+          el.classList.add('is-in');
+          setTimeout(function() { el.classList.remove('is-flash'); }, 120);
+        });
+      }
+      function observeAll() {
+        var els = document.querySelectorAll('.flash-reveal:not([data-flash-observed])');
+        if (!els.length) return;
+        var io = new IntersectionObserver(function(entries) {
+          entries.forEach(function(e) { if (e.isIntersecting) { reveal(e.target); io.unobserve(e.target); } });
+        }, { threshold: 0.15 });
+        els.forEach(function(el) { el.setAttribute('data-flash-observed', '1'); io.observe(el); });
+      }
+      observeAll();
+      new MutationObserver(observeAll).observe(document.documentElement, { childList: true, subtree: true });
+      window.addEventListener('load', observeAll);
+    })();
+  </script>
+</helmet>
+<div style="background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);min-height:100vh">
+  <nav class="nav" style="max-width:1040px;margin:0 auto;flex-wrap:wrap">
+    <span class="nav-brand" style="white-space:nowrap;flex-shrink:0">AMIRSALAR</span>
+    <a href="./index.dc.html">About</a>
+    <a href="./research.dc.html">Research</a>
+    <a href="./teaching.dc.html" aria-current="page">Teaching</a>
+    <a href="./cv.dc.html">CV</a>
+    <a href="./media.dc.html">Media</a>
+    <a href="./contact.dc.html">Contact</a>
+  </nav>
+
+  <section style="max-width:1040px;margin:0 auto;padding:var(--space-8) var(--space-4);display:grid;grid-template-columns:1.3fr 1fr;gap:var(--space-8);align-items:start" class="flash-reveal is-in">
+    <div>
+      <h6 style="color:var(--color-accent)">Teaching philosophy</h6>
+      <h1 style="margin-bottom:var(--space-4)">Teaching as a dual commitment</h1>
+      <p style="font-size:17px;max-width:560px">
+        My journey as an educator is driven by a belief that the classroom should be a place where students don't just absorb facts, but where they are empowered to grow as whole individuals. I see teaching as a dual commitment: while I expect my students to nurture their intellectual curiosities, I also hope to foster the socio-emotional maturity they need to become well-rounded adults. For me, success is measured not just by the mastery of a syllabus, but by instilling a lifelong curiosity and the resilience to apply that knowledge to the world around them.
+      </p>
+    </div>
+<img src="./assets/photo-12.jpeg" alt="Presenting to students" style="width:100%;aspect-ratio:4/5;object-fit:cover">
+  </section>
+
+  <hr class="hr" style="max-width:1040px;margin:0 auto">
+
+  <section style="max-width:1040px;margin:0 auto;padding:var(--space-8) var(--space-4)" class="flash-reveal">
+    <h2 style="margin-bottom:var(--space-4)">An invitation to dialogue</h2>
+    <p style="max-width:700px;margin-bottom:var(--space-3)">Rather than simply delivering material, I meticulously coordinate class agendas to ensure the environment is inclusive and supportive, where every voice is valued. My delivery is designed to invite dialogue rather than passive listening. By incorporating multimedia materials and interactive activities, I aim to show students what it means to be an expert who remains an active learner, encouraging active participation and questioning.</p>
+    <p style="max-width:700px;margin-bottom:var(--space-3)">By inviting multiple perspectives into our discussions, I challenge students to think critically and see themselves as part of an evolving scholarly conversation. I design in-class group activities for students. I wrote a four-page case published in the 2026 edition of that textbook.</p>
+    <p style="max-width:700px" class="text-muted">Feedback: "the in-class activities were great, especially those that involved group work."</p>
+    <p style="max-width:700px" class="text-muted">Below is an example of a recent in-class activity I designed.</p>
+    <div style="max-width:700px;margin-top:var(--space-4)">
+      <iframe src="./assets/inclass-activity-7.pdf#toolbar=0&navpanes=0" style="width:100%;height:600px;border:1px solid var(--color-divider)" title="In-class activity example"></iframe>
+    </div>
+  </section>
+
+  <hr class="hr" style="max-width:1040px;margin:0 auto">
+
+  <section style="max-width:1040px;margin:0 auto;padding:var(--space-8) var(--space-4)" class="flash-reveal">
+    <h2 style="margin-bottom:var(--space-4)">Bringing practice into the classroom</h2>
+    <p style="max-width:700px;margin-bottom:var(--space-3)">To bridge the gap between theory and the daily lives of my students, I actively integrate practical, real-world experiences into the curriculum. This involves more than just reading case studies: I regularly manage the logistics to bring industry guest speakers directly into our classroom, cold-calling guests, connecting on LinkedIn, and answering their questions ahead of each visit, all out of pocket. A non-exhaustive list of speakers I have invited:</p>
+    <ul style="max-width:700px;margin-bottom:var(--space-3);padding-left:var(--space-4);display:flex;flex-direction:column;gap:var(--space-1)">
+      <li>Foreign National Trade Council</li>
+      <li>Circle</li>
+      <li>BRAIN</li>
+      <li>Texco Technology</li>
+      <li>Reshoring Initiative</li>
+      <li>Global Steel Climate Council</li>
+      <li>Streevo</li>
+      <li>Y2 AI</li>
+    </ul>
+    <p style="max-width:700px" class="text-muted">Feedback: "bringing guest speakers to talk about relevant subjects that we were learning that week of class solidified my understanding of the subject."</p>
+  </section>
+
+  <hr class="hr" style="max-width:1040px;margin:0 auto">
+
+  <section style="max-width:1040px;margin:0 auto;padding:var(--space-8) var(--space-4)" class="flash-reveal">
+    <h2 style="margin-bottom:var(--space-4)">Using AI to teach</h2>
+    <p style="max-width:700px;margin-bottom:var(--space-3)">I use AI to prepare for teaching: two agents collect and send me summaries of papers from my favorite journals, along with reports, news, and non-academic articles relevant to what I teach, so I always have fresh examples. I also use AI to design scenario-based group activities, and to create audio summaries, video summaries, and infographics so students have modern ways to review material. Students have cited these as some of the most engaging parts of the class.</p>
+  </section>
+
+  <hr class="hr" style="max-width:1040px;margin:0 auto">
+
+  <section style="max-width:1040px;margin:0 auto;padding:var(--space-8) var(--space-4)" class="flash-reveal">
+    <h2 style="margin-bottom:var(--space-4)">A reflective practice</h2>
+    <p style="max-width:700px;margin-bottom:var(--space-3)">At its heart, my teaching is a responsive and reflective practice. My primary goal is for students to feel supported enough to take intellectual risks, through a collaborative community where we celebrate unique experiences and build a sense of camaraderie. I treat feedback, formal and informal, as an essential dialogue that informs how I adjust my strategies to meet students' needs.</p>
+    <p style="max-width:700px" class="text-muted">Feedback: "it's clear our professor is highly educated and definitely qualified to teach the subject matter."</p>
+  </section>
+
+  <hr class="hr" style="max-width:1040px;margin:0 auto">
+
+  <section style="max-width:1040px;margin:0 auto;padding:var(--space-8) var(--space-4)" class="flash-reveal">
+    <h2 style="margin-bottom:var(--space-4)">Courses</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--space-6)">
+      <div>
+        <h4 class="card-title" style="margin-bottom:var(--space-2)">Instructor of record</h4>
+        <p class="card-body">International Business, University of Texas at Dallas</p>
+      </div>
+      <div>
+        <h4 class="card-title" style="margin-bottom:var(--space-2)">Teaching assistant</h4>
+        <p class="card-body">Human Resource Management, International Business, Strategic Management, and Entrepreneurship, University of Texas at Dallas. Research and teaching, American University.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="hr" style="max-width:1040px;margin:0 auto">
+
+  <footer style="max-width:1040px;margin:0 auto;padding:var(--space-6) var(--space-4);display:flex;justify-content:space-between;font-size:13px" class="text-muted">
+    <span>© 2026 A. Gorizi</span>
+  </footer>
+</div>
+</x-dc>
+</body>
+</html>

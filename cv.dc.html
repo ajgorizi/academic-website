@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>CV | Amirsalar</title>
+  <link rel="stylesheet" href="./assets/styles.css">
+  <style>
+    .flash-reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease-out, transform 0.5s ease-out, background-color 0.4s ease-out; }
+    .flash-reveal.is-in { opacity: 1; transform: translateY(0); }
+    .flash-reveal.is-flash { background-color: var(--color-accent); transition: background-color 0.05s; }
+  </style>
+  <script>
+    (function() {
+      function reveal(el) {
+        el.classList.add('is-flash');
+        requestAnimationFrame(function() {
+          el.classList.add('is-in');
+          setTimeout(function() { el.classList.remove('is-flash'); }, 120);
+        });
+      }
+      function observeAll() {
+        var els = document.querySelectorAll('.flash-reveal:not([data-flash-observed])');
+        if (!els.length) return;
+        var io = new IntersectionObserver(function(entries) {
+          entries.forEach(function(e) { if (e.isIntersecting) { reveal(e.target); io.unobserve(e.target); } });
+        }, { threshold: 0.15 });
+        els.forEach(function(el) { el.setAttribute('data-flash-observed', '1'); io.observe(el); });
+      }
+      observeAll();
+      new MutationObserver(observeAll).observe(document.documentElement, { childList: true, subtree: true });
+      window.addEventListener('load', observeAll);
+    })();
+  </script>
+</helmet>
+<div style="background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);min-height:100vh">
+  <nav class="nav" style="max-width:1040px;margin:0 auto;flex-wrap:wrap">
+    <span class="nav-brand" style="white-space:nowrap;flex-shrink:0">AMIRSALAR</span>
+    <a href="./index.dc.html">About</a>
+    <a href="./research.dc.html">Research</a>
+    <a href="./teaching.dc.html">Teaching</a>
+    <a href="./cv.dc.html" aria-current="page">CV</a>
+    <a href="./media.dc.html">Media</a>
+    <a href="./contact.dc.html">Contact</a>
+  </nav>
+
+  <section style="max-width:1040px;margin:0 auto;padding:var(--space-8) var(--space-4)" class="flash-reveal is-in">
+    <h6 style="color:var(--color-accent)">Curriculum Vitae</h6>
+    <h1 style="margin-bottom:var(--space-3)">Amirsalar</h1>
+    <p class="text-muted"><a href="https://www.linkedin.com/in/ajgorizi/" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://scholar.google.com/citations?user=X_7i-M0AAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a> · <a href="https://orcid.org/0000-0002-8109-0970" target="_blank" rel="noopener">ORCID</a></p>
+  </section>
+
+  <hr class="hr" style="max-width:1040px;margin:0 auto">
+
+  <section style="max-width:1040px;margin:0 auto;padding:var(--space-8) var(--space-4)" class="flash-reveal">
+    <h2 style="margin-bottom:var(--space-4)">Education</h2>
+    <div style="display:flex;flex-direction:column;gap:var(--space-3)">
+      <div style="display:flex;justify-content:space-between;gap:var(--space-4)"><span><strong>University of Texas at Dallas</strong>, PhD, Organization, Strategy, and International Management</span><span class="text-muted" style="white-space:nowrap">2023–2027</span></div>
+      <div style="display:flex;justify-content:space-between;gap:var(--space-4)"><span><strong>American University</strong> (Washington, DC), MSc, Sustainability Management</span><span class="text-muted" style="white-space:nowrap">Aug 2023</span></div>
+      <div style="display:flex;justify-content:space-between;gap:var(--space-4)"><span><strong>Shahid Beheshti University</strong>, MA, Information Technology Management</span><span class="text-muted" style="white-space:nowrap">Sep 2020</span></div>
+      <div style="display:flex;justify-content:space-between;gap:var(--space-4)"><span><strong>Payam Noor University</strong>, BA, Business Administration and Management</span><span class="text-muted" style="white-space:nowrap">Aug 2016</span></div>
+    </div>
+  </section>
+
+  <hr class="hr" style="max-width:1040px;margin:0 auto">
+
+  <section style="max-width:1040px;margin:0 auto;padding:var(--space-8) var(--space-4)" class="flash-reveal">
+    <h2 style="margin-bottom:var(--space-4)">Work experience</h2>
+    <div style="display:flex;flex-direction:column;gap:var(--space-3)">
+      <div>
+        <div style="display:flex;justify-content:space-between;gap:var(--space-4)"><strong>University of Texas at Dallas, Graduate Assistant, Instructor</strong><span class="text-muted" style="white-space:nowrap">Aug 2023–Aug 2025</span></div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;gap:var(--space-4)"><strong>American University, Graduate Assistant, Research and Teaching</strong><span class="text-muted" style="white-space:nowrap">Jan 2022–Jul 2023</span></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="hr" style="max-width:1040px;margin:0 auto">
+
+  <section style="max-width:1040px;margin:0 auto;padding:var(--space-8) var(--space-4)" class="flash-reveal">
+    <h2 style="margin-bottom:var(--space-4)">Honors &amp; awards (selected)</h2>
+    <div style="display:flex;flex-direction:column;gap:var(--space-2);font-size:14px">
+      <p>2025 (Oct): Nominated for the Best PhD Paper Award, Strategic Management Society Conference, San Francisco, CA.</p>
+      <p>2025 (May): Top Student Paper Award, Eastern Academy of Management, Baltimore, MD.</p>
+      <p>2023: Linda Latham Scholarship (ACEEE), Industry Summer Study, Detroit, MI, <strong>one of seven recipients worldwide</strong>.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--space-4);margin-top:var(--space-5)">
+      <figure style="margin:0">
+        <img src="./assets/award-eaom.jpeg" alt="Receiving the EAOM Top Student Paper Award" style="width:100%;aspect-ratio:4/3;object-fit:cover">
+        <figcaption class="text-muted" style="font-size:12px;margin-top:var(--space-1)">EAOM Top Student Paper Award</figcaption>
+      </figure>
+      <figure style="margin:0">
+        <img src="./assets/award-linda-latham.jpeg" alt="With fellow Linda Latham Scholarship recipients" style="width:100%;aspect-ratio:4/3;object-fit:cover">
+        <figcaption class="text-muted" style="font-size:12px;margin-top:var(--space-1)">Linda Latham Scholarship, ACEEE Industry Summer Study</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <hr class="hr" style="max-width:1040px;margin:0 auto">
+
+  <section style="max-width:1040px;margin:0 auto;padding:var(--space-8) var(--space-4)" class="flash-reveal">
+    <h2 style="margin-bottom:var(--space-4)">Skills</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--space-4);font-size:14px">
+      <div><strong>Language</strong><p class="text-muted">English (advanced), French (intermediate)</p></div>
+      <div><strong>Data visualization</strong><p class="text-muted">Excel, PowerPoint, Power BI, Tableau, R, ArcGIS Pro, GEE</p></div>
+      <div><strong>Statistical analysis</strong><p class="text-muted">Jamovi, R, SPSS, STATA, Python, STAN</p></div>
+      <div><strong>Linguistics &amp; computation</strong><p class="text-muted">Deconstruction, historical discourse analysis, machine learning, deep learning, NLP, LLMs</p></div>
+    </div>
+  </section>
+
+  <hr class="hr" style="max-width:1040px;margin:0 auto">
+
+  <section style="max-width:1040px;margin:0 auto;padding:var(--space-8) var(--space-4)" class="flash-reveal">
+    <h2 style="margin-bottom:var(--space-4)">Service</h2>
+    <p class="card-body">Co-interviewed authors for the ASQ Blog on their Administrative Science Quarterly paper: <a href="https://asqblog.com/2025/11/19/if-i-could-turn-back-time-occupational-dynamics-technology-trajectories-and-the-reemergence-of-the-analog-music-synthesizer/" target="_blank" rel="noopener">"If I Could Turn Back Time" ↗</a></p>
+    <p class="card-body" style="margin-top:var(--space-2)"><a href="https://orcid.org/0000-0002-8109-0970" target="_blank" rel="noopener">ORCID profile ↗</a></p>
+  </section>
+
+  <hr class="hr" style="max-width:1040px;margin:0 auto">
+
+  <section style="max-width:1040px;margin:0 auto;padding:var(--space-8) var(--space-4)" class="flash-reveal">
+    <h2 style="margin-bottom:var(--space-2)">Ad-hoc peer review</h2>
+    <p class="text-muted" style="margin-bottom:var(--space-4)">Total conducted peer reviews: <strong>40+</strong></p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--space-2) var(--space-6);font-size:14px">
+      <p>Southern Management Association Conference, 2026</p>
+      <p>Eastern Academy of Management Conference, 2026</p>
+      <p>Journal of Business Venturing</p>
+      <p>Academy of International Business Conference, 2025</p>
+      <p>Academy of Management Conference, 2025</p>
+      <p>Academy of Management Conference, 2024</p>
+      <p>Cross Cultural &amp; Strategic Management</p>
+      <p>Energy Strategy Reviews</p>
+      <p>World Development Sustainability</p>
+      <p>Sustainable Production and Consumption</p>
+      <p>Sustainable Manufacturing and Service Economics</p>
+      <p>Papers in Applied Geography</p>
+      <p>Technology in Society</p>
+      <p>The Third Bridging Transportation Researchers (BTR) Conference, 2021</p>
+    </div>
+  </section>
+
+  <hr class="hr" style="max-width:1040px;margin:0 auto">
+
+  <footer style="max-width:1040px;margin:0 auto;padding:var(--space-6) var(--space-4);display:flex;justify-content:space-between;font-size:13px" class="text-muted">
+    <span>© 2026 A. Gorizi</span>
+  </footer>
+</div>
+
+</x-dc>
+</body>
+</html>

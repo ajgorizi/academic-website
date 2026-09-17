@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>Contact | Amirsalar</title>
+  <link rel="stylesheet" href="./assets/styles.css">
+  <style>
+    .flash-reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease-out, transform 0.5s ease-out, background-color 0.4s ease-out; }
+    .flash-reveal.is-in { opacity: 1; transform: translateY(0); }
+    .flash-reveal.is-flash { background-color: var(--color-accent); transition: background-color 0.05s; }
+  </style>
+  <script>
+    (function() {
+      function reveal(el) {
+        el.classList.add('is-flash');
+        requestAnimationFrame(function() {
+          el.classList.add('is-in');
+          setTimeout(function() { el.classList.remove('is-flash'); }, 120);
+        });
+      }
+      function observeAll() {
+        var els = document.querySelectorAll('.flash-reveal:not([data-flash-observed])');
+        if (!els.length) return;
+        var io = new IntersectionObserver(function(entries) {
+          entries.forEach(function(e) { if (e.isIntersecting) { reveal(e.target); io.unobserve(e.target); } });
+        }, { threshold: 0.15 });
+        els.forEach(function(el) { el.setAttribute('data-flash-observed', '1'); io.observe(el); });
+      }
+      observeAll();
+      new MutationObserver(observeAll).observe(document.documentElement, { childList: true, subtree: true });
+      window.addEventListener('load', observeAll);
+    })();
+  </script>
+</helmet>
+<div style="background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);min-height:100vh">
+  <nav class="nav" style="max-width:1040px;margin:0 auto;flex-wrap:wrap">
+    <span class="nav-brand" style="white-space:nowrap;flex-shrink:0">AMIRSALAR</span>
+    <a href="./index.dc.html">About</a>
+    <a href="./research.dc.html">Research</a>
+    <a href="./teaching.dc.html">Teaching</a>
+    <a href="./cv.dc.html">CV</a>
+    <a href="./media.dc.html">Media</a>
+    <a href="./contact.dc.html" aria-current="page">Contact</a>
+  </nav>
+
+  <section style="max-width:1040px;margin:0 auto;padding:var(--space-8) var(--space-4);display:grid;grid-template-columns:1fr 1fr;gap:var(--space-8)">
+    <div class="flash-reveal is-in">
+      <h6 style="color:var(--color-accent)">Get in touch</h6>
+      <h1 style="margin-bottom:var(--space-4)">Contact</h1>
+      <p style="max-width:420px;margin-bottom:var(--space-4)">
+        Reach out by email or find me through the links below.
+      </p>
+      <div style="display:flex;flex-direction:column;gap:var(--space-2)">
+        <a href="mailto:amirsalar.jafarigorizi@utdallas.edu">amirsalar.jafarigorizi@utdallas.edu</a>
+        <a href="https://scholar.google.com/citations?user=X_7i-M0AAAAJ&amp;hl=en" target="_blank" rel="noopener" style="white-space:nowrap">Google Scholar ↗</a>
+        <a href="https://www.linkedin.com/in/ajgorizi/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </div>
+
+    <form action="mailto:amirsalar.jafarigorizi@utdallas.edu" method="get" class="flash-reveal" style="display:flex;flex-direction:column;gap:var(--space-3)">
+      <div class="field">
+        <label for="name">Name</label>
+        <input class="input" id="name" name="name" type="text">
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input class="input" id="email" name="email" type="email">
+      </div>
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea class="input" id="message" name="body" rows="5"></textarea>
+      </div>
+      <button class="btn btn-primary btn-block" type="submit">Send message</button>
+    </form>
+  </section>
+
+  <hr class="hr" style="max-width:1040px;margin:0 auto">
+
+  <footer style="max-width:1040px;margin:0 auto;padding:var(--space-6) var(--space-4);display:flex;justify-content:space-between;font-size:13px" class="text-muted">
+    <span>© 2026 A. Gorizi</span>
+  </footer>
+</div>
+
+</x-dc>
+</body>
+</html>

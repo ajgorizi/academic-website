@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>Research | Amirsalar</title>
+  <link rel="stylesheet" href="./assets/styles.css">
+  <style>
+    .flash-reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease-out, transform 0.5s ease-out, background-color 0.4s ease-out; }
+    .flash-reveal.is-in { opacity: 1; transform: translateY(0); }
+    .flash-reveal.is-flash { background-color: var(--color-accent); transition: background-color 0.05s; }
+  </style>
+  <script src="./image-slot.js"></script>
+  <script>
+    (function() {
+      function reveal(el) {
+        el.classList.add('is-flash');
+        requestAnimationFrame(function() {
+          el.classList.add('is-in');
+          setTimeout(function() { el.classList.remove('is-flash'); }, 120);
+        });
+      }
+      function observeAll() {
+        var els = document.querySelectorAll('.flash-reveal:not([data-flash-observed])');
+        if (!els.length) return;
+        var io = new IntersectionObserver(function(entries) {
+          entries.forEach(function(e) { if (e.isIntersecting) { reveal(e.target); io.unobserve(e.target); } });
+        }, { threshold: 0.15 });
+        els.forEach(function(el) { el.setAttribute('data-flash-observed', '1'); io.observe(el); });
+      }
+      observeAll();
+      new MutationObserver(observeAll).observe(document.documentElement, { childList: true, subtree: true });
+      window.addEventListener('load', observeAll);
+    })();
+  </script>
+</helmet>
+<div style="background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);min-height:100vh">
+  <nav class="nav" style="max-width:1040px;margin:0 auto;flex-wrap:wrap">
+    <span class="nav-brand" style="white-space:nowrap;flex-shrink:0">AMIRSALAR</span>
+    <a href="./index.dc.html">About</a>
+    <a href="./research.dc.html" aria-current="page">Research</a>
+    <a href="./teaching.dc.html">Teaching</a>
+    <a href="./cv.dc.html">CV</a>
+    <a href="./media.dc.html">Media</a>
+    <a href="./contact.dc.html">Contact</a>
+  </nav>
+
+  <section style="max-width:1040px;margin:0 auto;padding:var(--space-8) var(--space-4);display:grid;grid-template-columns:1.3fr 1fr;gap:var(--space-8);align-items:start" class="flash-reveal is-in">
+    <div>
+      <h6 style="color:var(--color-accent)">Research statement</h6>
+      <h1 style="margin-bottom:var(--space-4)">Organizational and institutional transformation</h1>
+      <p style="font-size:17px;max-width:560px">
+        My theoretical interests center on organizational and institutional transformation. Phenomenon-wise, my research studies organizations, fields, and industries as they undergo digital transformation and pursue sustainability goals. This agenda builds directly on my prior master's degrees in sustainability management and information technology management, and on years of professional research experience before my PhD.
+      </p>
+    </div>
+<img src="./assets/photo-17.jpeg" alt="Amirsalar" style="width:100%;aspect-ratio:4/5;object-fit:cover">
+  </section>
+
+  <hr class="hr" style="max-width:1040px;margin:0 auto">
+
+  <section style="max-width:1040px;margin:0 auto;padding:var(--space-8) var(--space-4)" class="flash-reveal">
+    <h6 style="color:var(--color-accent)">Dissertation overview</h6>
+    <h2 style="margin-bottom:var(--space-4)">Corporate commitments to stakeholders</h2>
+    <p class="text-muted" style="max-width:680px;margin-bottom:var(--space-6)">
+      My dissertation examines three types of transformation that follow organizational commitments to three groups of stakeholders: internal stakeholders, community stakeholders, and the broader society.
+    </p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--space-6)">
+      <div>
+        <span class="tag tag-accent">Internal stakeholders</span>
+        <h4 class="card-title" style="margin-top:var(--space-2)">Agent or Steward: Unconstrained Power and Managerial Organizational Identification</h4>
+        <p class="card-body" style="font-style:italic">Amirsalar Jafari Gorizi, Mike W. Peng PhD</p>
+        <p class="card-body">Examines how constraints on shareholder power shape managers' identification with their organization. Contributes to the agency and stewardship literatures by reconciling their competing predictions. <strong>Earlier version nominated for the SMS Best Student Paper Award.</strong> Targeted for the Academy of Management Journal.</p>
+      </div>
+      <div>
+        <span class="tag tag-accent">Community stakeholders</span>
+        <h4 class="card-title" style="margin-top:var(--space-2)">Contractual Commitments and Stakeholder Conflicts</h4>
+        <p class="card-body" style="font-style:italic">Amirsalar Jafari Gorizi, Mike W. Peng PhD</p>
+        <p class="card-body">Studies contractual commitments between multinational natural resource firms and local community stakeholders. Contributes to the literature on contract design and community mobilization. <strong>Earlier version won the EAOM Best Student Paper Award.</strong> Targeted for the Journal of International Business Studies.</p>
+      </div>
+      <div>
+        <span class="tag tag-accent">Broader society</span>
+        <h4 class="card-title" style="margin-top:var(--space-2)">Corporate Sustainability Pledges</h4>
+        <p class="card-body" style="font-style:italic">Amirsalar Jafari Gorizi, Mike W. Peng PhD, Sahar Moslemian</p>
+        <p class="card-body">Studies why firms join the United Nations Global Compact and how financial markets respond. Contributes to research on corporate sustainability and market perceptions of pledges. <strong>AOM Proceedings 2026.</strong> Targeted for Management Science.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="hr" style="max-width:1040px;margin:0 auto">
+
+  <section style="max-width:1040px;margin:0 auto;padding:var(--space-8) var(--space-4)" class="flash-reveal">
+    <h6 style="color:var(--color-accent)">Working papers</h6>
+    <h2 style="margin-bottom:var(--space-2)">Other advanced working papers</h2>
+    <p class="text-muted" style="max-width:640px;margin-bottom:var(--space-4);font-size:13px">Titles below are shortened for readability; full titles are preserved for peer review and citation on the CV.</p>
+    <div style="display:flex;flex-direction:column;gap:var(--space-4)">
+      <div>
+        <h4 class="card-title">Microlinguistic Persuasion Mechanisms in Corporate Communication</h4>
+        <p class="card-body" style="font-style:italic">Amirsalar Jafari Gorizi</p>
+        <p class="card-body">Examines microlinguistic mechanisms of persuasion in corporate political content. Solo-authored. <strong>Recently submitted.</strong></p>
+      </div>
+      <div>
+        <h4 class="card-title">Agenda-setting in Online Newspapers</h4>
+        <p class="card-body" style="font-style:italic">Amirsalar Jafari Gorizi, Weimin Liang</p>
+        <p class="card-body">Studies how digital transformation altered agenda-setting at a major U.S. newspaper, using an affordance-based institutional logics lens. Contributes to research on digital transformation of professional practices. <strong>Short version published in ICIS Proceedings 2025.</strong></p>
+      </div>
+      <div>
+        <h4 class="card-title">LLM Affordances and Professional Routines</h4>
+        <p class="card-body" style="font-style:italic">Amirsalar Jafari Gorizi, Anna Fung PhD</p>
+        <p class="card-body">Studies digital publication platforms to examine how large language model affordances intersect with professional routines. Contributes to research on digital transformation of professional practice. <strong>Will Present at DSI 2026.</strong></p>
+      </div>
+      <div>
+        <h4 class="card-title">Geopolitical Shocks and Environmental Degradation</h4>
+        <p class="card-body" style="font-style:italic">Amirsalar Jafari Gorizi</p>
+        <p class="card-body">Integrates real options theory with institutional polycentricism to examine how geopolitical pressure shapes environmental outcomes in the natural resource industry. Contributes to research on multinational firms and corporate sustainability. <strong>Will present at AIB NE 2026.</strong></p>
+      </div>
+      <div>
+        <h4 class="card-title">Drug Liberalization and Empowerment of Communities through Entrepreneurship</h4>
+        <p class="card-body" style="font-style:italic">Amirsalar Jafari Gorizi, Alessandro Piazza PhD</p>
+        <p class="card-body">Asks whether cannabis legalization spills over into broader entrepreneurship. Contributes to research on regulation and local economic activity. <strong>Presented at the Lone Star Conference, Aug 2026.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="hr" style="max-width:1040px;margin:0 auto">
+
+  <section style="max-width:1040px;margin:0 auto;padding:var(--space-8) var(--space-4)" class="flash-reveal">
+    <h2 style="margin-bottom:var(--space-4)">Publications</h2>
+    <div style="display:flex;flex-direction:column;gap:var(--space-2);font-size:14px">
+      <p>Jafari Gorizi, A. (2026). The Rise of the North Texas Economy: An integrative case study. In Peng, M. W., <em>Global Business</em> (6th ed.). Cengage Learning.</p>
+      <p>Shokoohyar, S., Ghomi, V., Gorizi, A. J., Liang, W., &amp; Evert, C. (2025). Exploring the impact of COVID-19 pandemic and vaccine dissemination on Airbnb's popularity and sentiment on Twitter. <em>International Journal of Web Based Communities</em>, 21(1-2), 124-154.</p>
+      <p>Liang, W. &amp; Jafari Gorizi, A. (2025). How do Online Newspapers Set Agendas Differently from Traditional Media? A Study of Institutional Logics. <em>ICIS 2025 Proceedings</em>, 14.</p>
+      <p>Shokoohyar, S., Ghomi, V., Jafari Gorizi, A., Liang, W., &amp; Sinclair, A. (2024). Impact of COVID-19 outbreak and vaccination on ride-sharing services: a social media analysis. <em>Transportation Letters</em>, 16(6), 527-541.</p>
+      <p>Shokoohyar, S., Shokohyar, S., Ghomi, V., &amp; Gorizi, A. J. (2023). Deconstruction of sustainable development discourses: avoiding skepticism pitfalls with a postmodern perspective. <em>World Review of Science, Technology and Sustainable Development</em>, 19(3), 285-300.</p>
+      <p>Shokoohyar, S., Jafari Gorizi, A., Ghomi, V., Liang, W., &amp; Kim, H. J. (2022). Sustainable transportation in practice: A systematic quantitative review of case studies. <em>Sustainability</em>, 14(5), 2617.</p>
+      <p>Shokouhyar, S., Shokoohyar, S., Sobhani, A., &amp; Gorizi, A. J. (2021). Shared mobility in post-COVID era: New challenges and opportunities. <em>Sustainable Cities and Society</em>, 67, 102714. <strong>Cited in official reports by the United Nations, the UN ESCAP, and the Asian Development Bank.</strong></p>
+    </div>
+    <p style="margin-top:var(--space-3);font-size:20px">Total Google Scholar citations: 268 as of 09/17/2026.</p>
+  </section>
+
+  <hr class="hr" style="max-width:1040px;margin:0 auto">
+
+  <footer style="max-width:1040px;margin:0 auto;padding:var(--space-6) var(--space-4);display:flex;justify-content:space-between;font-size:13px" class="text-muted">
+    <span>© 2026 A. Gorizi</span>
+  </footer>
+</div>
+
+</x-dc>
+</body>
+</html>
