@@ -14,6 +14,7 @@
     .flash-reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease-out, transform 0.5s ease-out, background-color 0.4s ease-out; }
     .flash-reveal.is-in { opacity: 1; transform: translateY(0); }
     .flash-reveal.is-flash { background-color: var(--color-accent); transition: background-color 0.05s; }
+    @media (max-width: 640px) { .responsive-grid { grid-template-columns: 1fr !important; } }
   </style>
   <script src="./image-slot.js"></script>
   <script>
@@ -50,7 +51,7 @@
     <a href="./contact.dc.html">Contact</a>
   </nav>
 
-  <section style="max-width:1040px;margin:0 auto;padding:var(--space-8) var(--space-4);display:grid;grid-template-columns:1.3fr 1fr;gap:var(--space-8);align-items:start" class="flash-reveal is-in">
+  <section style="max-width:1040px;margin:0 auto;padding:var(--space-8) var(--space-4);display:grid;grid-template-columns:1.3fr 1fr;gap:var(--space-8);align-items:start" class="flash-reveal is-in responsive-grid">
     <div>
       <h6 style="color:var(--color-accent)">Research statement</h6>
       <h1 style="margin-bottom:var(--space-4)">Organizational and institutional transformation</h1>

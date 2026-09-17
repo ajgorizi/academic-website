@@ -15,6 +15,9 @@
     .flash-reveal.is-in { opacity: 1; transform: translateY(0); }
     .flash-reveal.is-flash { background-color: var(--color-accent); transition: background-color 0.05s; }
   </style>
+  <style>
+    @media (max-width: 640px) { .responsive-grid { grid-template-columns: 1fr !important; } }
+  </style>
   <script>
     (function() {
       function reveal(el) {
@@ -49,7 +52,7 @@
     <a href="./contact.dc.html" aria-current="page">Contact</a>
   </nav>
 
-  <section style="max-width:1040px;margin:0 auto;padding:var(--space-8) var(--space-4);display:grid;grid-template-columns:1fr 1fr;gap:var(--space-8)">
+  <section style="max-width:1040px;margin:0 auto;padding:var(--space-8) var(--space-4);display:grid;grid-template-columns:1fr 1fr;gap:var(--space-8)" class="responsive-grid">
     <div class="flash-reveal is-in">
       <h6 style="color:var(--color-accent)">Get in touch</h6>
       <h1 style="margin-bottom:var(--space-4)">Contact</h1>

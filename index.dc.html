@@ -23,6 +23,7 @@
     .flash-img.flash-flip.is-in { transform: translateX(0) scale(1); }
     .flash-txt.flash-flip { transform: translateX(-40px); }
     .flash-txt.flash-flip.is-in { transform: translateX(0); }
+    @media (max-width: 640px) { .responsive-grid { grid-template-columns: 1fr !important; } .responsive-grid img { max-width: 100% !important; } }
   </style>
   <script>
     (function() {
@@ -65,8 +66,8 @@
   </nav>
 
   <section style="max-width:1040px;margin:0 auto;padding:var(--space-8) var(--space-4)" class="flash-reveal is-in">
-    <h1 style="margin-bottom:var(--space-4);font-size:56px">Amirsalar</h1>
-    <div style="display:flex;gap:var(--space-3)">
+    <h1 style="margin-bottom:var(--space-4);font-size:clamp(36px,9vw,56px)">Amirsalar</h1>
+    <div style="display:flex;gap:var(--space-3);flex-wrap:wrap">
       <a class="btn btn-primary" href="https://scholar.google.com/citations?user=X_7i-M0AAAAJ&amp;hl=en" target="_blank" rel="noopener" style="white-space:nowrap">Google Scholar</a>
       <a class="btn btn-secondary" href="https://www.linkedin.com/in/ajgorizi/" target="_blank" rel="noopener">LinkedIn</a>
       <a class="btn btn-secondary" href="https://www.researchgate.net/profile/Amirsalar-Jafari-Gorizi" target="_blank" rel="noopener">ResearchGate</a>
@@ -76,7 +77,7 @@
 
   <hr class="hr" style="max-width:1040px;margin:0 auto">
 
-  <section style="max-width:1040px;margin:0 auto;padding:var(--space-8) var(--space-4);display:grid;grid-template-columns:1fr 1fr;gap:var(--space-6);align-items:center">
+  <section style="max-width:1040px;margin:0 auto;padding:var(--space-8) var(--space-4);display:grid;grid-template-columns:1fr 1fr;gap:var(--space-6);align-items:center" class="responsive-grid">
     <img src="./assets/photo-11.jpeg" alt="Amirsalar" class="flash-img is-in" style="width:100%;max-width:320px;aspect-ratio:4/5;object-fit:cover">
     <p class="flash-txt is-in" style="font-size:22px;line-height:1.4">
       I am a social scientist and a teacher. I love doing research. And I love teaching.
@@ -85,7 +86,7 @@
 
   <hr class="hr" style="max-width:1040px;margin:0 auto">
 
-  <section style="max-width:1040px;margin:0 auto;padding:var(--space-8) var(--space-4);display:grid;grid-template-columns:1fr 1fr;gap:var(--space-6);align-items:center">
+  <section style="max-width:1040px;margin:0 auto;padding:var(--space-8) var(--space-4);display:grid;grid-template-columns:1fr 1fr;gap:var(--space-6);align-items:center" class="responsive-grid">
     <div>
       <img src="./assets/photo-14.jpeg" alt="At a conference" class="flash-img flash-flip" style="width:100%;max-width:320px;aspect-ratio:4/3;object-fit:cover">
       <p class="text-muted" style="font-size:16px;margin-top:var(--space-2);max-width:320px">AOM 2023, before starting my PhD</p>
@@ -97,7 +98,7 @@
 
   <hr class="hr" style="max-width:1040px;margin:0 auto">
 
-  <section style="max-width:1040px;margin:0 auto;padding:var(--space-8) var(--space-4);display:grid;grid-template-columns:1fr 1fr;gap:var(--space-6);align-items:center">
+  <section style="max-width:1040px;margin:0 auto;padding:var(--space-8) var(--space-4);display:grid;grid-template-columns:1fr 1fr;gap:var(--space-6);align-items:center" class="responsive-grid">
     <div>
       <img src="./assets/photo-16.jpeg" alt="At the INFORMS conference" class="flash-img" style="width:100%;max-width:320px;height:auto">
       <p class="text-muted" style="font-size:16px;margin-top:var(--space-2);max-width:320px">INFORMS 2022, before starting my PhD</p>
