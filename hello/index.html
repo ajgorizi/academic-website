@@ -203,9 +203,14 @@ body.beating .eq span{animation-duration:.25s}
   *,*::before,*::after{animation:none !important;transition:none !important}
   .rv,.stagger > *,.statement .w,h1 .line > span,.intro{opacity:1 !important;transform:none !important}
 }
+.home-btn{position:fixed;left:max(16px,env(safe-area-inset-left,0px));top:16px;z-index:60;display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;font-weight:700;font-size:15px;color:#fff;text-decoration:none;background:rgba(11,7,16,.75);border:1.5px solid var(--cyan);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 0 16px rgba(34,228,255,.45);transition:transform .2s, box-shadow .2s}
+.home-btn:hover{transform:translateY(-2px);box-shadow:0 0 28px rgba(34,228,255,.8)}
+.home-btn svg{width:18px;height:18px}
+.hero{padding-top:clamp(84px,8vw,96px) !important}
 </style>
 </head>
 <body>
+<a class="home-btn" href="../"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h5v-6h4v6h5V10"/></svg>Home</a>
 <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
 <div class="grain" aria-hidden="true"></div>
 <div class="glow-cursor" aria-hidden="true"></div>

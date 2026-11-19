@@ -1,0 +1,91 @@
+/* Calm neon theme for the academic pages. Loaded after styles.css and only overrides it.
+   Same family as the More about me page, but softer: slow light, gentle glow, no flicker. */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&display=swap');
+
+:root{
+  --color-bg:#0E0B14;
+  --color-surface:rgba(255,255,255,.045);
+  --color-text:#EEE9F3;
+  --color-accent:#FF5FA2;
+  --color-accent-2:#45D9F5;
+  --color-accent-600:#FF7DB5;
+  --color-accent-700:#FF97C4;
+  --color-divider:rgba(255,255,255,.14);
+  --font-heading:"Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
+  --font-body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --radius-sm:8px; --radius-md:12px; --radius-lg:18px;
+  --violet:#8A6CFF;
+  color-scheme:dark;
+}
+html{overflow-x:clip}
+body{background:#0E0B14;font-size:16px;line-height:1.65;overflow-x:clip}
+/* let the moving light show through the page wrapper */
+[style*="background:var(--color-bg)"],[style*="background: var(--color-bg)"]{background:transparent !important}
+
+/* moving light behind everything */
+.fx-aurora{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.fx-aurora i{position:absolute;border-radius:50%;filter:blur(110px);opacity:.22;animation:fx-drift 30s ease-in-out infinite alternate}
+.fx-aurora i:nth-child(1){width:55vmax;height:55vmax;background:#FF5FA2;top:-22vmax;left:-18vmax}
+.fx-aurora i:nth-child(2){width:50vmax;height:50vmax;background:#8A6CFF;bottom:-24vmax;right:-18vmax;animation-duration:38s;animation-delay:-8s}
+.fx-aurora i:nth-child(3){width:34vmax;height:34vmax;background:#45D9F5;top:40vh;left:45vw;opacity:.12;animation-duration:44s;animation-delay:-15s}
+@keyframes fx-drift{0%{transform:translate(0,0) scale(1)}50%{transform:translate(8vw,6vh) scale(1.1)}100%{transform:translate(-6vw,10vh) scale(.95)}}
+.fx-glow{position:fixed;left:0;top:0;width:380px;height:380px;margin:-190px 0 0 -190px;border-radius:50%;pointer-events:none;z-index:-1;background:radial-gradient(circle,rgba(255,95,162,.12),transparent 62%);transform:translate(-999px,-999px)}
+.fx-progress{position:fixed;top:0;left:0;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(0);z-index:60;background:linear-gradient(90deg,#45D9F5,#8A6CFF,#FF5FA2)}
+
+/* type */
+h1{letter-spacing:-.025em;text-shadow:0 0 28px rgba(255,95,162,.28)}
+h2,h3{letter-spacing:-.015em}
+a{color:var(--color-accent)}
+a:hover{text-shadow:0 0 12px rgba(255,95,162,.45)}
+.text-muted{color:rgba(238,233,243,.62)}
+::selection{background:rgba(255,95,162,.35)}
+
+/* nav: frosted bar that stays on top */
+.nav{position:sticky;top:0;z-index:50;border-bottom:1px solid var(--color-divider);background:rgba(14,11,20,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:0 0 16px 16px;row-gap:6px}
+.nav a{padding:6px 10px;border-radius:999px;transition:background .2s,color .2s,box-shadow .2s;font-size:14.5px}
+.nav a:hover,.nav a[aria-current='page']{color:#fff;background:rgba(255,95,162,.16);box-shadow:0 0 14px rgba(255,95,162,.28);text-shadow:none}
+.nav-brand{letter-spacing:.06em}
+.nav-brand a,.nav a.fx-brand{padding:0;background:none !important;box-shadow:none !important;font-size:18px;color:#fff}
+.nav a.fx-brand:hover{color:var(--color-accent)}
+
+/* rules */
+.hr{height:1px;background:linear-gradient(90deg,transparent,rgba(255,95,162,.6),rgba(69,217,245,.5),transparent);border:0}
+
+/* buttons */
+.btn{border-radius:999px;padding:10px 18px;font-weight:700;transition:transform .2s,box-shadow .2s,background .2s,border-color .2s}
+.btn:hover{transform:translateY(-2px);text-shadow:none}
+.btn-primary{background:var(--color-accent);color:#fff;box-shadow:0 0 18px rgba(255,95,162,.4)}
+.btn-primary:hover{background:#FF73AF;box-shadow:0 0 28px rgba(255,95,162,.6)}
+.btn-secondary{color:var(--color-text);border-color:var(--color-divider);background:rgba(255,255,255,.04)}
+.btn-secondary:hover{border-color:var(--color-accent-2);box-shadow:0 0 18px rgba(69,217,245,.35);background:rgba(69,217,245,.06)}
+
+/* cards and tags */
+.card{border:1px solid var(--color-divider);backdrop-filter:blur(6px);transition:transform .25s,border-color .25s,box-shadow .25s}
+.card:hover{transform:translateY(-3px);border-color:rgba(255,95,162,.5);box-shadow:0 0 24px rgba(255,95,162,.18)}
+.tag-accent{background:rgba(255,95,162,.14);color:#FFC2DC;border:1px solid rgba(255,95,162,.35)}
+.tag-outline{border-color:var(--color-accent-2);color:var(--color-accent-2)}
+.input{background:rgba(255,255,255,.05);color:var(--color-text)}
+.table td,.table th{border-color:var(--color-divider)}
+
+/* photos: rounded with a soft colored glow */
+section img, main img{border-radius:14px;box-shadow:0 0 0 1px rgba(255,255,255,.1),0 10px 40px rgba(138,108,255,.25);transition:transform .4s,box-shadow .4s}
+section img:hover, main img:hover{transform:scale(1.02);box-shadow:0 0 0 1px rgba(255,95,162,.5),0 10px 50px rgba(255,95,162,.3)}
+.grayscale{filter:grayscale(1) contrast(1.08) brightness(.95)}
+
+/* the old reveal flashed solid red; make it a soft pink glow */
+.flash-reveal.is-flash{background-color:rgba(255,95,162,.12) !important}
+.flash-reveal{border-radius:16px}
+
+/* Home button */
+.fx-home{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:max(16px,env(safe-area-inset-bottom,0px));z-index:70;display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:999px;font-family:var(--font-body);font-weight:700;font-size:15px;color:#fff;text-decoration:none;background:rgba(14,11,20,.8);border:1.5px solid rgba(255,95,162,.6);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 0 18px rgba(255,95,162,.35);transition:transform .2s,box-shadow .2s}
+.fx-home:hover{transform:translateY(-3px);box-shadow:0 0 28px rgba(255,95,162,.6);text-shadow:none;color:#fff}
+.fx-home svg{width:18px;height:18px}
+
+@media (max-width:700px){
+  .nav{position:static;border-radius:0}
+  .fx-home{padding:10px 14px;font-size:14px}
+}
+@media (prefers-reduced-motion:reduce){
+  .fx-aurora i{animation:none}
+  .card,.btn,section img,main img{transition:none}
+}
